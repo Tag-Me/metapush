@@ -14,17 +14,17 @@ fetch(`${supabaseUrl}/rest/v1/seo_data?select=meta_title&hostname=eq.${host}&rou
   mode: 'cors'
 })
 .then(function(fetchResult) {
-  return fetchResult.json();
-})
-.then(function(results) {
-  if (fetchResult.ok) {
-    const metaResult = results && results.length && results[0];
-    if (metaResult && metaResult.meta_title) {
-        document.title = metaResult.meta_title;
-    }
-  } else {
-      console.error(results);
-  }
+  return fetchResult.json()
+    .then(function(results) {
+      if (fetchResult.ok) {
+        const metaResult = results && results.length && results[0];
+        if (metaResult && metaResult.meta_title) {
+            document.title = metaResult.meta_title;
+        }
+      } else {
+          console.error(results);
+      }
+    });
 })
 .catch(function(err) {
   console.error('Error updating title', err);
