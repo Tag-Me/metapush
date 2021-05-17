@@ -1,31 +1,58 @@
-const host = window.location.hostname;
-const route = encodeURIComponent(window.location.pathname);
+// Homepage Script
 
-const supabaseUrl = 'https://kcyuajymdxnbqcoblgvg.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYxOTU1Nzg4OSwiZXhwIjoxOTM1MTMzODg5fQ.Ft2TTnR6tTrtlqLJrh56bluS4C4JFtFHuK4d-oWn1c8';
+if (document.location.href === 'https://www.taggingguru.com/') {
+  document.title = 'Tagging Guru | Welcome | Homepage';
+}
 
-fetch(`${supabaseUrl}/rest/v1/seo_data?select=meta_title&hostname=eq.${host}&route=eq.${route}`, {
-  headers: {
-      'Accept': 'application/json',
-      'apikey': supabaseKey,
-      'authorization': `Bearer ${supabaseKey}`
-  },
-  method: 'GET',
-  mode: 'cors'
-})
-.then(function(fetchResult) {
-  return fetchResult.json()
-    .then(function(results) {
-      if (fetchResult.ok) {
-        const metaResult = results && results.length && results[0];
-        if (metaResult && metaResult.meta_title) {
-            document.title = metaResult.meta_title;
-        }
-      } else {
-          console.error(results);
-      }
-    });
-})
-.catch(function(err) {
-  console.error('Error updating title', err);
-});
+// My Team Page Script
+
+if (document.location.href === 'https://www.taggingguru.com/my-team') {
+  document.title = 'Tagging Guru | Get to Know Us | Team ';
+}
+
+// About Us Page Script
+if (document.location.href === 'https://www.taggingguru.com/about-tagging-guru') {
+  document.title = 'Tagging Guru | About Us | Meta Data CMS';
+}
+
+// Features Page Script
+
+if (document.location.href === 'https://www.taggingguru.com/features') {
+  document.title = 'Tagging Guru | Features | Platform Options';
+}
+
+// Products Script
+
+if (document.location.href === 'https://www.taggingguru.com/products') {
+  document.title = 'Tagging Guru | Products | Plans and Pricing';
+}
+
+// Blog Main Page Script
+
+if (document.location.href === 'https://www.taggingguru.com/blog') {
+  document.title = 'Tagging Guru | Knowledge Hub | Blog';
+}
+
+// Blog 1 Page Script
+
+if (document.location.href === 'https://www.taggingguru.com/blog/what-is-a-cms') {
+  document.title = 'Tagging Guru | What is a CMS | Blog';
+}
+
+// Blog 2 Page Script
+
+if (document.location.href === 'https://www.taggingguru.com/blog/why-tagging-guru') {
+  document.title = 'Tagging Guru | Competitor Comparison | Blog';
+}
+
+// Blog 3 Page Script
+
+if (document.location.href === 'https://www.taggingguru.com/blog/what-are-meta-tags') {
+  document.title = 'Tagging Guru | Everything You Need to Know About Meta Tags | Blog';
+}
+
+// Blog 4 Page Script
+
+if (document.location.href === 'https://www.taggingguru.com/blog/crushing-organic-search') {
+  document.title = 'Tagging Guru | Organic Search Best Practices | Blog';
+}
